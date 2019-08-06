@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'sqlite3'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'popper_js', '~> 1.14.5'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
