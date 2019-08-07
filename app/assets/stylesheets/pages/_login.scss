@@ -1,0 +1,54 @@
+img.login-bg {
+  filter: brightness(75%);
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.login-bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+#login-logo {
+  width: 316px;
+  border-bottom: solid #33145F 1px;
+  margin-top: 12px;
+}
+
+.login-form {
+  position: absolute;
+  background-color: white;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  max-width: 365px;
+}
+
+.login-form h2 {
+  text-align: center;
+  color: #373737;
+  margin: 16px 0px;
+}
+
+.login-btn {
+  padding: 12px 130px;
+  margin: 16px 0px;
+}
+
+.login-link {
+  padding: 12px 135px;
+  margin: 16px 0px;
+}
+
+
