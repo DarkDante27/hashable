@@ -1,0 +1,39 @@
+.profile-banner {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.profile-banner > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-banner h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-banner p {
+  font-size: 14px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.profile-banner .banner-detail {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.banner-detail .banner-user {
+  position: absolute;
+  right: 16px;
+  top: -40px;
+  width: 160px;
+}
