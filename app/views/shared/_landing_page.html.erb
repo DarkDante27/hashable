@@ -3,8 +3,8 @@
   <h1 id="title">Discover what people is thinking!</h1>
   <p>With Hasher you can read and share thoughts.</p>
   <div class="buttons d-flex justify-content-center" id="buttons">
-    <a class="btn btn-primary sign-up" href="#">Sign up</a>
-    <a class="btn btn-secondary login" href="#">Login</a>
+    <%= link_to 'Sign-up', '/users/sign_up', class: 'btn btn-primary sign-up' %>
+    <%= link_to 'Login', '/users/sign_in', class: 'btn btn-secondary login' %>
   </div>
 </div>
 
