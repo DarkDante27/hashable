@@ -1,6 +1,7 @@
-<% @users.each do |user| %>
-<%= link_to user.username, user %>
-<%= user.email %>
-<% end %>
-
-<p>This is the index page</p>
+<%= render 'shared/navbar' %>
+<h1 class="users-header">Latest users:</h1>
+<div class="container">
+  <ul class="list-unstyled">
+    <%= render @users %>
+  </ul>
+</div>

@@ -1,0 +1,40 @@
+<% if current_user.id == @user.id %>
+  <div class="profile-banner" data-profile=<%= @user.id %>>
+    <img src="https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg" />
+    <div class="banner-detail">
+      <div>
+        <h2><%= @user.username %></h2>
+          <p>Joined <%= @user.created_at.to_time.strftime('%B %e of %Y') %></p>
+        <div>
+          <p>Followed Users: <%= @user.following.count %></p>
+          <p>Followers: <%= @user.followers.count %></p>
+        </div>
+          <%= image_tag "man.svg", class: "banner-user avatar-bordered" %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="profile-banner" data-profile=<%= @user.id %>>
+    <img src="https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg" />
+    <div class="banner-detail">
+      <div>
+        <h2><%= @user.username %></h2>
+        <p>Joined <%= @user.created_at.to_time.strftime('%B %e of %Y') %></p>
+        <div>
+          <p>Followed Users: <%= @user.following.count %></p>
+          <p>Followers: <%= @user.followers.count %></p>
+        </div>
+      </div>
+        <div>
+          <% if current_user.is_following?(@user.id) %>
+            <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "btn btn-outline-danger follow-unfollow-btn-profile" %>
+          <% else %>
+            <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true, class: "btn btn-outline-dark follow-unfollow-btn-profile" %>
+          <% end %>
+        </div>
+        <div>
+          <%= image_tag "man.svg", class: "banner-user avatar-bordered" %>
+        </div>
+    </div>
+  </div>
+<% end %>

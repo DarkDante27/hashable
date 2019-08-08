@@ -1,0 +1,19 @@
+<li class="profile-list" data-user=<%= user.id %>>
+  <div class="profile-card">
+    <%= image_tag "man.svg" %>
+    <div class="profile-info d-flex">
+        <h2 class="mr-auto p-2 card-username">
+          <%= link_to user.username, user %>
+          <p>Followed Users: <%= user.following.count %></p>
+          <p>Followers: <%= user.followers.count %></p>
+        </h2>
+       <p class="p-2">
+        <% if current_user.is_following?(user.id) %>
+          <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true, class: "btn btn-outline-danger follow-unfollow-btn" %>
+        <% else %>
+          <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn btn-outline-dark follow-unfollow-btn" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</li>
