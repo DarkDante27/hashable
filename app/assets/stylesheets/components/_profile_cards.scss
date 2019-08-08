@@ -1,0 +1,59 @@
+.profile-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  background-image: url(https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg);
+  margin-top: 18px;
+}
+
+.profile-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.profile-card h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 0px;
+}
+
+.profile-card .profile-info {
+  padding: 16px;
+  width: 986px;
+}
+
+.card-username a {
+  color: #343A40;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  -ms-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+  &:hover {
+    color: white;
+  }
+}
+
+.users-header {
+  text-align: center;
+  color: white;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.follow-unfollow-btn {
+  font-size: 20px;
+  font-weight: bolder;
+}

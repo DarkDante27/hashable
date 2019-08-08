@@ -1,0 +1,16 @@
+function renderUser(userHTML) {
+  const user = document.querySelector("[data-user='<%= @user.id %>']");
+    if (user) {
+    user.outerHTML = userHTML;
+  };
+};
+
+function renderProfile(profileHTML) {
+  const profileUser = document.querySelector("[data-profile='<%= @user.id %>']");
+    if (profileUser) {
+    profileUser.outerHTML = profileHTML;
+  };
+};
+
+renderUser('<%= j render @user %>');
+renderProfile(`<%= j render 'profile' %>`);

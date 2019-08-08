@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   end
   post "/graphql", to: "graphql#execute"
   devise_for :users, :path_prefix => ''
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+     member do
+      post :follow
+      post :unfollow
+    end
+  end
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
