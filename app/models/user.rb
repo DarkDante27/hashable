@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :following, through: :following_relationships, source: :following
   has_many :miniposts, dependent: :destroy
   validates_uniqueness_of :username
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :cover, CoverUploader
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

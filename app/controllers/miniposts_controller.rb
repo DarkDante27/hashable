@@ -25,6 +25,7 @@ class MinipostsController < ApplicationController
   def minipost_params
     params.require(:minipost).permit(:content, :picture)
   end
+
   def correct_user
     @minipost = current_user.miniposts.find_by(id: params[:id])
     redirect_to root_url if @minipost.nil?

@@ -1,6 +1,10 @@
 <li class="profile-list" data-user=<%= user.id %>>
   <div class="profile-card">
+    <% if user.avatar? %>
+    <%= image_tag user.avatar.url %>
+    <% else %>
     <%= image_tag "man.svg" %>
+    <% end %>
     <div class="profile-info d-flex">
         <h2 class="mr-auto p-2 card-username">
           <%= link_to user.username, user %>
