@@ -29,6 +29,9 @@ class User < ApplicationRecord
   end
 
   def feed
-    Minipost.where("user_id = ?", id)
+    following_ids = "SELECT following_id FROM follows
+                     WHERE  follower_id = :user_id"
+    Minipost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
   end
 end
