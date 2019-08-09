@@ -1,6 +1,10 @@
 <% if current_user.id == @user.id %>
   <div class="profile-banner" data-profile=<%= @user.id %>>
-    <img src="https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg" />
+    <% if @user.cover? %>
+          <%= image_tag @user.cover.url %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg" %>
+        <% end %>
     <div class="banner-detail">
       <div>
         <h2><%= @user.username %></h2>
@@ -9,13 +13,21 @@
           <p>Followed Users: <%= @user.following.count %></p>
           <p>Followers: <%= @user.followers.count %></p>
         </div>
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url, class: "banner-user avatar-bordered" %>
+        <% else %>
           <%= image_tag "man.svg", class: "banner-user avatar-bordered" %>
+        <% end %>
       </div>
     </div>
   </div>
 <% else %>
   <div class="profile-banner" data-profile=<%= @user.id %>>
-    <img src="https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg" />
+    <% if @user.cover? %>
+          <%= image_tag @user.cover.url %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg" %>
+        <% end %>
     <div class="banner-detail">
       <div>
         <h2><%= @user.username %></h2>
@@ -33,8 +45,11 @@
           <% end %>
         </div>
         <div>
-          <%= image_tag "man.svg", class: "banner-user avatar-bordered" %>
-        </div>
+          <% if @user.avatar? %>
+            <%= image_tag @user.avatar.url, class: "banner-user avatar-bordered" %>
+          <% else %>
+            <%= image_tag "man.svg", class: "banner-user avatar-bordered" %>
+          <% end %>
     </div>
   </div>
 <% end %>

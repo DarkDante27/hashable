@@ -1,6 +1,7 @@
+<%= render 'shared/navbar' %>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -21,6 +22,32 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :bio,
+                hint: "add some information about yourself",
+                input_html: { autocomplete: "Hello im a full-stack dev!" } %>
+    <% if current_user.avatar.url.present? %>
+      <strong>Existing Avatar</strong><BR>
+        <%= image_tag @current_user.avatar_url.to_s  %>
+        <%= f.label :remove_avatar do %>
+        <%= f.check_box :remove_avatar %>
+        <% end %>
+      <% end %>
+      <strong>Upload an avatar</strong><BR>
+      <%= f.label :avatar, class: "control-label col-md-4" %>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+
+      <% if current_user.cover.url.present? %>
+      <strong>Existing Cover</strong><BR>
+        <%= image_tag @current_user.cover_url.to_s  %>
+        <%= f.label :remove_cover do %>
+        <%= f.check_box :remove_cover %>
+        <% end %>
+      <% end %>
+      <strong>Upload a cover</strong><BR>
+      <%= f.label :cover, class: "control-label col-md-4" %>
+      <%= f.file_field :cover %>
+      <%= f.hidden_field :cover_cache %>
   </div>
 
   <div class="form-actions">

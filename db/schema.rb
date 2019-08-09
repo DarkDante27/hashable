@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_085617) do
+ActiveRecord::Schema.define(version: 2019_08_09_115201) do
 
   create_table "follows", force: :cascade do |t|
     t.integer "following_id", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_085617) do
     t.string "username", default: "", null: false
     t.text "bio"
     t.string "avatar"
+    t.string "cover"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
