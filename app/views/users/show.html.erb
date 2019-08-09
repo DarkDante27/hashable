@@ -2,3 +2,14 @@
 <div class="container">
   <%= render 'profile' %>
 </div>
+<div class="container">
+  <div class="col-md-8">
+    <% if @user.miniposts.any? %>
+      <h3>Miniposts: (<%= @user.miniposts.count %>)</h3>
+      <ol class="miniposts">
+        <%= render @user.miniposts %>
+      </ol>
+      <%= will_paginate @miniposts %>
+    <% end %>
+  </div>
+</div>

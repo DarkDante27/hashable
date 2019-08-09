@@ -27,4 +27,8 @@ class User < ApplicationRecord
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
   end
+
+  def feed
+    Minipost.where("user_id = ?", id)
+  end
 end
