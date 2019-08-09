@@ -22,6 +22,8 @@ gem 'bootstrap-sass'
 gem 'popper_js', '~> 1.14.5'
 gem 'graphql'
 gem 'mail'
+gem 'will_paginate'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

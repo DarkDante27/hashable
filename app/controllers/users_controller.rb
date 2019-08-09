@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
+    @miniposts = @user.miniposts.paginate(page: params[:page])
   end
 
   def index
