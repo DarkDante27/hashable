@@ -1,0 +1,15 @@
+  John:
+    content: "Hey! Hello mom!"
+    created_at: <%= 30.minutes.ago %>
+
+  DarkSouls:
+    content: "I love Darksouls, lets play online!"
+    created_at: <%= 3.years.ago %>
+
+  space_commander:
+    content: "I just watched star wars! *Crying*"
+    created_at: <%= 2.hours.ago %>
+
+  mars_pics:
+    content: "NASA just released new mars pics!"
+    created_at: <%= Time.zone.now %>
