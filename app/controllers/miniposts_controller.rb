@@ -23,7 +23,7 @@ class MinipostsController < ApplicationController
   private
 
   def minipost_params
-    params.require(:minipost).permit(:content)
+    params.require(:minipost).permit(:content, :picture)
   end
   def correct_user
     @minipost = current_user.miniposts.find_by(id: params[:id])

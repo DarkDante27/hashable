@@ -24,6 +24,9 @@ gem 'graphql'
 gem 'mail'
 gem 'will_paginate'
 gem 'faker'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+gem 'mini_magick'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
