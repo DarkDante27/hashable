@@ -26,13 +26,6 @@ $ bundle
 $ yarn
 ```
 
-- Now we are ready to run the local server with:
-
-```bash
-$ rails s
-```
-**Now the Site is running and you can test it.**
-
 ## SETTING UP USERS
 
 - Just to be sure that the Database is starting clean, please run this command:
@@ -70,6 +63,13 @@ Now click on **MAC** and lastly click on **GENERATE**
 - Now paste that password on the **.env** instead of your regular password. **_Remember you can use your regular password if you
 dont have Double factor activated on your account. but if you have any problem please generate the password._**
 
+- Now we are ready to run the local server with:
+
+```bash
+$ rails s
+```
+**Now the Site is running and you can test it.**
+
 ## CREATING USERS
 
 - In order to fill the site with fake users to test, Please run this command:
@@ -79,6 +79,11 @@ $ rails db:seed
 ```
 
 - Of course if you have different emails you can register your own emails and log in.
+- Just to be sure, please restart your server for any problem might create seeding the database:
+
+```bash
+$ rails restart
+```
 
 ## GRAPHQL QUERIES
 
