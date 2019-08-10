@@ -1,4 +1,5 @@
 <% if current_user.id == @user.id %>
+<!-- rendering the logged in user profile page -->
   <div class="profile-banner" data-profile=<%= @user.id %>>
     <% if @user.cover? %>
           <%= image_tag @user.cover.url %>
@@ -22,6 +23,7 @@
     </div>
   </div>
 <% else %>
+<!-- if the logged in user is checking others pages it will render the other user's page -->
   <div class="profile-banner" data-profile=<%= @user.id %>>
     <% if @user.cover? %>
           <%= image_tag @user.cover.url %>

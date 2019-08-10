@@ -2,14 +2,19 @@
 <div class="container">
   <%= render 'profile' %>
 </div>
+<!-- Rendering the logged user's posts -->
 <div class="container">
-  <div class="col-md-8">
-    <% if @user.miniposts.any? %>
-      <h3>Miniposts: (<%= @user.miniposts.count %>)</h3>
-      <ol class="miniposts">
-        <%= render @user.miniposts %>
-      </ol>
-      <%= will_paginate @miniposts %>
-    <% end %>
-  </div>
+  <% if @user.miniposts.any? %>
+  <h3 class="feed-title">Miniposts: (<%= @user.miniposts.count %>)</h3>
+  <ol class="miniposts">
+    <%= render @user.miniposts %>
+  </ol>
+    <%= will_paginate @miniposts, list_classes: %w(pagination justify-content-center) %>
+  <% else %>
+    <h2 class="no-posts">:'( No posts</h2>
+    <div class="d-flex justify-content-center">
+      <%= image_tag "https://res.cloudinary.com/dduochwyb/image/upload/v1565423483/HASHABLE/Sad-Twitter-Bird_sovudb.png", alt: "sad_bird", id: "no-posts-bird" %>
+    </div>
+  <% end %>
 </div>
+

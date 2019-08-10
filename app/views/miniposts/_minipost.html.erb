@@ -1,12 +1,25 @@
-<li id="minipost-<%= minipost.id %>">
-  <span class="user"><%= link_to minipost.user.username, minipost.user %></span>
-  <span class="content"><%= minipost.content %></span>
-  <%= cl_image_tag minipost.picture.url if minipost.picture? %>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(minipost.created_at) %> ago.
-    <% if current_user.id == minipost.user.id %>
-      <%= link_to "delete", minipost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
+<li class="d-flex bd-highlight mb-3" id="minipost-<%= minipost.id %>">
+  <div class="p-2 bd-highlight">
+    <% if minipost.user.avatar.url %>
+      <%= image_tag minipost.user.avatar.url, class: "minipost-avatar" %>
+    <% else %>
+      <%= image_tag "man.svg", class: "minipost-avatar"  %>
     <% end %>
-  </span>
+  </div>
+
+  <div class="p-2 bd-highlight">
+    <span class="user"><%= link_to minipost.user.username, minipost.user %></span>
+    <p class="content"><%= minipost.content %></p>
+    <%= cl_image_tag minipost.picture.url, class: "post-picture" if minipost.picture? %>
+    <span class="timestamp justify-content-between">
+      Posted <%= time_ago_in_words(minipost.created_at) %> ago.
+    </span>
+  </div>
+  <div class="ml-auto p-2 bd-highlight post-delete-btn">
+    <% if current_user.id == minipost.user.id %>
+      <%= link_to "Delete", minipost, method: :delete,
+                                       data: { confirm: "You sure?" }, class: "btn btn-outline-danger" %>
+    <% end %>
+  </div>
 </li>
+

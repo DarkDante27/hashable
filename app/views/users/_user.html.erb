@@ -10,6 +10,7 @@
           <%= link_to user.username, user %>
           <p>Followed Users: <%= user.following.count %></p>
           <p>Followers: <%= user.followers.count %></p>
+          <p>Total posts: <%= user.miniposts.count %></p>
         </h2>
        <p class="p-2">
         <% if current_user.is_following?(user.id) %>
