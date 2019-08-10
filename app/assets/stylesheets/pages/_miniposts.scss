@@ -4,14 +4,15 @@
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
+    background-color: white;
   }
   .user {
     margin-top: 5em;
     padding-top: 0;
+    font-size: 18px;
   }
   .content {
     display: block;
-    margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;
@@ -20,8 +21,21 @@
   .timestamp {
     color: lightgrey;
     display: block;
-    margin-left: 60px;
   }
+  .post-delete-btn {
+    margin-top: 26px;
+    margin-bottom: 26px;
+  }
+  .post-picture {
+
+  }
+}
+
+.minipost-avatar {
+  width: 80px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
 }
 
 aside {

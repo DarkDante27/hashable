@@ -1,23 +1,27 @@
 <% if user_signed_in? %>
   <%= render 'shared/navbar' %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= render 'shared/user_info' %>
-    </section>
-    <section class="minipost_form">
-      <%= render 'shared/minipost_form' %>
-    </section>
-  </aside>
-</div>
-<div class="col-md-8">
-  <h3>Minipost Feed</h3>
+  <!-- the user info in the home page with the post form -->
+  <div class="d-flex justify-content-center ">
+    <div class="container home-post-cont">
+      <aside>
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+        <section class="minipost_form">
+          <%= render 'shared/minipost_form' %>
+        </section>
+      </aside>
+    </div>
+  </div>
+<!-- The feed Render -->
+<div class="container">
+  <h3 class="feed-title">Your Feed</h3>
   <%= render 'shared/feed' %>
+<%= image_tag "arrow_up.svg", class: "fixed-bottom back-to-top" %>
 </div>
+<!-- If the user is not logged in it will render the landing page -->
 <% else %>
-  <%= render 'shared/landing_page' %>
+  <%= render 'landing_page' %>
 <% end %>
-
-
 
 

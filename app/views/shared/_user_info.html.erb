@@ -1,4 +1,12 @@
-<%= link_to current_user %>
-<h1><%= current_user.username %></h1>
-<span><%= link_to "view my profile", current_user %></span>
-<span><%= pluralize(current_user.miniposts.count, "minipost") %></span>
+<div class="d-flex justify-content-between">
+    <% if current_user.avatar.url  %>
+      <%= image_tag current_user.avatar.url, id: 'home-info-avatar' %>
+      <% else %>
+      <%= image_tag "man.svg", id: 'home-info-avatar'%>
+    <% end %>
+  <div>
+    <h1 class="home-username"><%= current_user.username %></h1>
+    <span><%= link_to "My profile     |", current_user, class: "home-profile-link" %></span>
+    <span class="home-minipost-count"><%= pluralize(current_user.miniposts.count, "Minipost") %></span>
+  </div>
+</div>
