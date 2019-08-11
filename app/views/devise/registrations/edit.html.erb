@@ -1,62 +1,86 @@
 <%= render 'shared/navbar' %>
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="feed-title">Edit your <%= resource_name.to_s.humanize %></h2>
+  <div class="container">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
-  <%= f.error_notification %>
+      <div class="form-group form-wrapper">
+        <!-- email input -->
+        <%= f.input :email, required: true, autofocus: true, class: 'form-control' %>
+        <!-- username inputs -->
+        <%= f.input :username,
+                     hint: "leave it blank if you don't want to change it",
+                     required: false, autofocus: true, class: 'form-control' %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+    <!-- forms for password, and bio -->
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :bio,
+                    hint: "add some information about yourself",
+                    input_html: { autocomplete: "Hello im a full-stack dev!" } %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <!-- Avatar upload and delete -->
+          <% if current_user.avatar.url.present? %>
+            <h2 class="feed-title">Existing Avatar</h2><BR>
+            <div class="d-flex justify-content-center">
+              <%= image_tag @current_user.avatar_url.to_s, class: "existing-avatar"  %>
+            </div>
+            <div class="d-flex justify-content-center form-check">
+              <%= f.label :remove_avatar %>
+              <%= f.check_box :remove_avatar, class: "remove-checkbox" %>
+            </div>
+          <% else %>
+            <h2 class="feed-title">Upload an avatar</h2><BR>
+            <div class="d-flex justify-content-center form-check">
+              <%= f.file_field :avatar, class: 'file-browser' %>
+              <%= f.hidden_field :avatar_cache %>
+            </div>
+          <% end %>
+          <!-- cover upload or delete -->
+          <% if current_user.cover.url.present? %>
+            <h2 class="feed-title">Existing Cover</h2><BR>
+            <div class="d-flex justify-content-center">
+              <%= image_tag @current_user.cover_url.to_s, class: "existing-cover"  %>
+            </div>
+            <div class="d-flex justify-content-center form-check">
+              <%= f.label :remove_cover %>
+              <%= f.check_box :remove_cover, class: "remove-checkbox" %>
+            </div>
+          <% else %>
+            <h2 class="feed-title">Upload a cover</h2><BR>
+            <div class="d-flex justify-content-center form-check">
+              <%= f.file_field :cover, class: 'file-browser' %>
+              <%= f.hidden_field :cover_cache %>
+            </div>
+          <% end %>
+      </div>
+      <!-- save changes section -->
+        <h2 class="feed-title">Save your changes</h2><BR>
+      <div class="save-changes d-flex justify-content-between">
+        <%= f.input :current_password,
+                        hint: "we need your current password to save your changes",
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "btn btn-primary update-btn" %>
+        </div>
+      </div>
     <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :bio,
-                hint: "add some information about yourself",
-                input_html: { autocomplete: "Hello im a full-stack dev!" } %>
-    <% if current_user.avatar.url.present? %>
-      <strong>Existing Avatar</strong><BR>
-        <%= image_tag @current_user.avatar_url.to_s  %>
-        <%= f.label :remove_avatar do %>
-        <%= f.check_box :remove_avatar %>
-        <% end %>
-      <% end %>
-      <strong>Upload an avatar</strong><BR>
-      <%= f.label :avatar, class: "control-label col-md-4" %>
-      <%= f.file_field :avatar %>
-      <%= f.hidden_field :avatar_cache %>
-
-      <% if current_user.cover.url.present? %>
-      <strong>Existing Cover</strong><BR>
-        <%= image_tag @current_user.cover_url.to_s  %>
-        <%= f.label :remove_cover do %>
-        <%= f.check_box :remove_cover %>
-        <% end %>
-      <% end %>
-      <strong>Upload a cover</strong><BR>
-      <%= f.label :cover, class: "control-label col-md-4" %>
-      <%= f.file_field :cover %>
-      <%= f.hidden_field :cover_cache %>
+    <h2 class="feed-title">Cancel my account</h2><BR>
+      <div class="d-flex justify-content-between delete-section">
+        <h2 class="delete-message">To delete your account click on the link:</h2>
+        <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+      </div>
   </div>
+<%= image_tag "arrow_up.svg", class: "fixed-bottom back-to-top" %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
