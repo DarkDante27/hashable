@@ -14,11 +14,12 @@
     </div>
   </div>
 <!-- The feed Render -->
-<div class="container">
+<div class="container feed-cont">
   <h3 class="feed-title">Your Feed</h3>
   <%= render 'shared/feed' %>
 <%= image_tag "arrow_up.svg", class: "fixed-bottom back-to-top" %>
 </div>
+  <%= render 'shared/footer' %>
 <!-- If the user is not logged in it will render the landing page -->
 <% else %>
   <%= render 'landing_page' %>

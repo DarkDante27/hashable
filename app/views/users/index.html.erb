@@ -1,8 +1,9 @@
 <%= render 'shared/navbar' %>
 <h1 class="users-header">Latest users:</h1>
-<div class="container">
+<div class="container users-container">
   <ul class="list-unstyled">
     <%= render @users %>
   </ul>
 </div>
 <%= image_tag "arrow_up.svg", class: "fixed-bottom back-to-top" %>
+<%= render 'shared/footer' %>
