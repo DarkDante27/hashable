@@ -22,6 +22,29 @@
       </div>
     </div>
   </div>
+  <!-- bio section -->
+  <% if @user.bio.blank? %>
+    <div class="bio-section">
+      <div class="d-flex justify-content-center feed-title">
+        <h4>Bio</h4>
+      </div>
+      <div class="user-bio">
+        <h4>There is no bio in your profile</h4>
+        <%= link_to 'Add a Bio', '/users/edit', class: 'btn btn-primary add-edit-bio-btn'  %>
+      </div>
+    </div>
+  <% else %>
+    <div class="bio-section">
+      <div class="d-flex justify-content-center feed-title">
+        <h4>Bio</h4>
+      </div>
+      <div class="user-bio">
+        <p><%= @user.bio %></p>
+      <%= link_to 'Edit Bio', '/users/edit', class: 'btn btn-primary add-edit-bio-btn' %>
+      </div>
+    </div>
+  <% end %>
+
 <% else %>
 <!-- if the logged in user is checking others pages it will render the other user's page -->
   <div class="profile-banner" data-profile=<%= @user.id %>>
@@ -52,6 +75,20 @@
           <% else %>
             <%= image_tag "man.svg", class: "banner-user avatar-bordered" %>
           <% end %>
+        </div>
     </div>
   </div>
+  <!-- other users bio section -->
+  <% if @user.bio.blank? %>
+    <div class="bio-section"></div>
+  <% else %>
+    <div class="bio-section">
+      <div class="d-flex justify-content-center feed-title">
+        <h4>Bio</h4>
+      </div>
+      <div class="user-bio">
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>
