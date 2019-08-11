@@ -53,3 +53,15 @@
   font-size: 20px;
   font-weight: bolder;
 }
+
+.user-bio {
+  color: white;
+  text-align: center;
+  p {
+    word-break: break-all;
+  }
+}
+
+.add-edit-bio-btn {
+  margin-top: 20px;
+}
