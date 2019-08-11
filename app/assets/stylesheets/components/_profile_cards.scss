@@ -27,6 +27,7 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 0px;
+  color: white;
 }
 
 .profile-card .profile-info {
@@ -35,7 +36,7 @@
 }
 
 .card-username a {
-  color: #343A40;
+  color: white;
   -webkit-transition: color 0.2s ease-out;
   -moz-transition: color 0.2s ease-out;
   -o-transition: color 0.2s ease-out;
@@ -57,4 +58,8 @@
   font-size: 20px;
   font-weight: bolder;
   margin-top: 16px;
+}
+
+.users-container {
+  min-height: -webkit-fill-available;
 }

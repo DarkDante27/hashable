@@ -39,6 +39,12 @@
   border: white 1px solid;
 }
 
+.posts-container {
+  max-height: -webkit-fill-available;
+  margin-top: 80px;
+  margin-bottom: 180px;
+}
+
 aside {
   textarea {
     height: 100px;
