@@ -1,7 +1,7 @@
 <li class="profile-list" data-user=<%= user.id %>>
   <div class="profile-card" style="background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= user.cover? ? user.cover.url : 'https://res.cloudinary.com/dduochwyb/image/upload/v1565249325/HASHABLE/nature-wallpaper-widescreen-nature-with-extra-moon-jpg_ettm6x.jpg' %>);background-size: cover; background-position: center;">
     <% if user.avatar? %>
-    <%= image_tag user.avatar.url %>
+    <%= image_tag user.avatar.url, class: 'user-index-avatar' %>
     <% else %>
     <%= image_tag "man.svg" %>
     <% end %>
