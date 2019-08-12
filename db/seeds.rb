@@ -56,7 +56,7 @@ puts "Adding some posts....."
 30.times do
   user = User.all.sample
   user.miniposts.create!(
-    content: Faker::Hacker.unique.say_something_smart
+    content: Faker::Hacker.say_something_smart
     )
 end
 
