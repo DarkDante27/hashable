@@ -139,26 +139,116 @@ $ rails restart
 
 # GRAPHQL QUERIES
 
-- I Implemented 1 API for this site at the moment, You can access the graphql interface by going to this link when your server is running:
+- An API was implemented thanks to GRAPHQL at the moment, You can access the graphql interface by going to this link when your server is running:
 
 - [http://localhost:3000/graphiql](http://localhost:3000/graphiql)
 
-- Now on the inteface you can run this query:
+- Now on the inteface you can run some queries:
+
+## Users
+
+- Return a list of all the users with their emails, usernames, bios, and Id's:
 
 ```graphql
 {
   users {
-    username
     id
+    username
     email
     bio
+    createdAt
   }
 }
 ```
 
--This should return a list of all the users with their emails, usernames, bios, and Id's.
+- Return a list of all users with their miniposts: 
 
-- **_In order to see the data with Graphql you should be logged in._**
+```graphql
+{
+  users {
+    id
+    username
+    email
+    bio
+    createdAt
+    miniposts {
+      id	
+      content
+      createdAt
+    }
+  }
+}
+```
+
+- If you want to find a user by id use, this query:
+
+```graphql
+{
+  user (id: 1) {
+    id
+    username
+    email
+    bio
+    createdAt
+  }
+}
+```
+
+- If you want to see an specific user miniposts, use this query: 
+
+```graphql
+{
+  user (id: 2) {
+    id
+    username
+    email
+    bio
+    createdAt
+    miniposts {
+      id	
+      content
+      createdAt
+    }
+  }
+}
+```
+
+## Miniposts
+
+- Return a list of all miniposts: 
+
+```graphql
+
+{
+  miniposts {
+    id	
+    content
+    createdAt
+    user {
+      id
+      username
+    }	
+  }
+}
+```
+
+- Find a minipost by id: 
+
+```graphql
+{
+  minipost (id: 1) {
+    id	
+    content
+    createdAt
+    user {
+      id
+      username
+    }	
+  }
+}
+```
+
+- **_In order to see the data with Graphql you should be logged in_**
 
 # TESTS 
 
