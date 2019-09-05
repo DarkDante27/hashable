@@ -1,15 +1,17 @@
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: db/twitter_copycat_development
+  database: db/hashable_development
 
 test:
   <<: *default
-  database: db/twitter_copycat_test
+  database: db/hashable_test
 
 production:
   <<: *default
-  database: db/twitter_copycat_production %>
+  database: db/hashable_production %>
