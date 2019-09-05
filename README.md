@@ -1,4 +1,4 @@
-Welcome to Hasher! this README will guide you to setup the website on your local host.
+Welcome to Hashable! this README will guide you to setup the website on your local host.
 
 # SETUP
 
@@ -8,13 +8,13 @@ Welcome to Hasher! this README will guide you to setup the website on your local
 - Now lets use that link to clone the repo using this console command:
 
 ```bash
-$ git clone git@github.com:DarkDante27/twitter_copycat.git
+$ git clone git@github.com:DarkDante27/hashable.git
 ```
 
 - This created a folder with the repo, lets move to the project's root path:
 
 ```bash
-$ cd twitter_copycat
+$ cd hashable
 ```
 - Now that we have the project locally we can install the gems we are using and other libraries using **yarn** and **bundle**.
 Run this commands:
