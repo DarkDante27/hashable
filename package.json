@@ -1,5 +1,5 @@
 {
-  "name": "twitter_copycat",
+  "name": "hashable",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.7",

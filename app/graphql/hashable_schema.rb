@@ -1,4 +1,4 @@
-class TwitterCopycatSchema < GraphQL::Schema
+class HashableSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 end
